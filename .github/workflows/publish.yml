@@ -2,7 +2,7 @@ name: publish site
 on:
   push:
     tags:
-      - 'v*' # v1.0, v2.0 등 버전 이름으로 된 브랜치들
+      - 'v*'
 permissions:
   contents: write
 jobs:
