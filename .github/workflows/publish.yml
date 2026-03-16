@@ -27,13 +27,14 @@ jobs:
 
       - name: Deploy with mike
         run: |
-          BRANCH_NAME=${GITHUB_REF_NAME}
+          # 현재 푸시된 태그 이름을 버전명으로 사용 (예: v1.0)
+          TAG_NAME=${GITHUB_REF_NAME}
           
-          # 1. 원격 gh-pages 브랜치 정보를 가져와서 로컬과 맞춤 (필수!)
+          # gh-pages 동기화
           git fetch origin gh-pages:gh-pages || true
           
-          # 2. 배포: 현재 버전을 배포하고 'latest'라는 별칭을 최신화함
-          mike deploy --push --update-aliases $BRANCH_NAME latest
+          # 태그 이름을 버전으로 배포하고 stable 별칭 부여
+          mike deploy --push --update-aliases $TAG_NAME stable
           
-          # 3. 기본 페이지를 항상 'latest' 별칭으로 고정 (안전함)
-          mike set-default --push latest
+          # 가장 최근 태그를 기본 페이지로 설정
+          mike set-default --push stable
