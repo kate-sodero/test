@@ -5,7 +5,7 @@ show_intro: true
 
 
 
-# Sodero Documents (V1)
+# Sodero Documents (V1.0.0)
 <p> get an overview of sedero's products features, intergrations, and how to use them. </p>
 
 ### Getting Started 
