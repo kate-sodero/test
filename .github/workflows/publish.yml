@@ -31,7 +31,7 @@ jobs:
           BRANCH_NAME=${GITHUB_REF_NAME}
           
           # 해당 브랜치의 소스코드를 빌드해서 gh-pages의 해당 폴더로 보냄
-          mike deploy --push --update-aliases $BRANCH_NAME stable
+          mike deploy --push --update-aliases $BRANCH_NAME $BRANCH_NAME
           
           # 필요하다면 가장 최신 브랜치를 기본 페이지로 설정
           mike set-default --push $BRANCH_NAME
